@@ -102,10 +102,12 @@ var mn = new MongoNode('mongodb://username:password@127.0.0.1:27017/databasename
     });
     
    
-   var model = mn.retrieveModel('User','User').then(async(res,msg,user) => { 
+   var model = mn.retrieveModel('User','User').then(async(res) => { 
        try { 
+           user = res.model;
            console.log(user);
-        return user;  
+           //process mongoose user model here..
+         return user;  
        }catch(e) { 
            console.log(e);
        }
